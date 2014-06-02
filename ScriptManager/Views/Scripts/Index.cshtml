@@ -1,0 +1,28 @@
+﻿@using Utilities.ScriptManager.Models;
+@using Utilities.ScriptManager.Helpers;
+@model IEnumerable<Script>
+@{
+    ViewBag.Title = "Scripts";
+}
+
+<h2>Scripts</h2>
+
+@Html.Label("Search")
+@Html.TextBox("Search", null, new { @class = "search" })        
+
+<div>
+    <div id="scripts">
+        @foreach (Script script in Model)
+        {
+            <div>
+                <a class="dialog" data-hoverdialog-previewid="scriptpreview" href="#">@script.Name</a>
+                <div class="hidden dialog searchable"><pre>@Html.Raw(Html.FormatPlainText(script.Value))</pre></div>
+            </div>                
+        }
+    </div>
+
+    <div id="scriptpreview" class="searchable">
+
+    </div>
+    <div style="clear: both;"></div>
+</div>

@@ -1,3 +1,11 @@
-/bin
+/ScriptManager/bin
+/ScriptManager/obj
+/ScriptManager/Web.config
+/ScriptManager/Web.Debug.config
+/ScriptManager/Web.Release.config
+ScriptManager/ScriptManager.csproj.user
+/Utilities/bin
+/Utilities/obj
+/packages
+Utilities.v11.suo
 
-/obj

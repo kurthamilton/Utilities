@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities.csproj", "{83B388A0-41D2-4A4E-8412-B96ADB0F032C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{83B388A0-41D2-4A4E-8412-B96ADB0F032C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptManager", "ScriptManager\ScriptManager.csproj", "{F28FE370-C3A5-49F6-9158-CF0166072EE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{83B388A0-41D2-4A4E-8412-B96ADB0F032C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83B388A0-41D2-4A4E-8412-B96ADB0F032C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83B388A0-41D2-4A4E-8412-B96ADB0F032C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F28FE370-C3A5-49F6-9158-CF0166072EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F28FE370-C3A5-49F6-9158-CF0166072EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F28FE370-C3A5-49F6-9158-CF0166072EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F28FE370-C3A5-49F6-9158-CF0166072EE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
