@@ -5,11 +5,7 @@
 });
 
 function bindCodeEditors() {
-    var editor = ace.edit('scriptpreview');
-    editor.setTheme('ace/theme/monokai');
-    editor.setReadOnly(true);
-    editor.setBehavioursEnabled(true);
-    editor.getSession().setMode('ace/mode/sql');
+    SyntaxHighlighter.all();
 }
 
 function bindHoverDialogs() {

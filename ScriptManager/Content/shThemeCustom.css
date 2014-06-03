@@ -1,0 +1,13 @@
+﻿/*SQL customisations*/
+.syntaxhighlighter .sql.string, .syntaxhighlighter .sql.string a {
+  color: red !important;
+}
+.syntaxhighlighter .sql.keyword {
+  color: blue !important;
+}
+.syntaxhighlighter .sql.color1, .syntaxhighlighter .sql.color1 a {
+  color: #808080 !important;
+}
+.syntaxhighlighter .sql.keyword {
+  font-weight: normal !important;
+}

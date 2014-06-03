@@ -24,11 +24,18 @@ namespace Utilities.ScriptManager
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/javascript").Include(
-                "~/Scripts/ace-builds/src-min-noconflict/ace.js",
+                "~/Scripts/SyntaxHighlighter/shCore.js",
+                "~/Scripts/SyntaxHighlighter/shBrushSql.js",
                 "~/Scripts/Script.js")
             );
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css", "~/Content/style.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/SyntaxHighlighter/shCore.css",
+                "~/Content/SyntaxHighlighter/shThemeDefault.css",
+                "~/Content/shThemeCustom.css",
+                "~/Content/site.css",
+                "~/Content/style.css")
+            );
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

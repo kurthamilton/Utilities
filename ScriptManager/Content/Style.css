@@ -19,7 +19,12 @@ span.searchresult {
 }
 
 div#scripts, div#scriptpreview {
-    float: left;
-    width: 50%;    
+    float: left;    
     max-height: 100%;
+}
+div#scripts {
+    width: 25%;  
+}
+div#scriptpreview {
+    width: 75%;  
 }
