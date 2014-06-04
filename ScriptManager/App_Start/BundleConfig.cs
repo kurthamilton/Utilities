@@ -23,11 +23,17 @@ namespace Utilities.ScriptManager
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/javascript").Include(
+            bundles.Add(new ScriptBundle("~/bundles/javascript/code-editor").Include(
+                "~/Scripts/ace-builds/src-min-noconflict/ace.js",
                 "~/Scripts/SyntaxHighlighter/shCore.js",
-                "~/Scripts/SyntaxHighlighter/shBrushSql.js",
-                "~/Scripts/Script.js")
+                "~/Scripts/SyntaxHighlighter/shBrushSql.js"
+                )
             );
+
+            bundles.Add(new ScriptBundle("~/bundles/javascript").Include(                
+                "~/Scripts/Script.js"
+                )
+            );            
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/SyntaxHighlighter/shCore.css",

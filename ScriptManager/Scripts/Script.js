@@ -4,8 +4,34 @@
     bindSearchTextBoxes();
 });
 
+var codeEditor;
+
 function bindCodeEditors() {
-    SyntaxHighlighter.all();
+
+    var provider = 'SyntaxHighlighter';
+
+    if (provider == 'ace') {
+        if (!codeEditor) {
+            codeEditor = ace.edit('editor');
+            codeEditor.setTheme('ace/theme/monokai');
+            codeEditor.setReadOnly(true);
+            codeEditor.getSession().setMode('ace/mode/sql');
+        }
+
+        $(document).bind('codeUpdate', function (ev, args) {
+            codeEditor.setValue(args.value)
+        });
+    }
+    else if (provider == 'SyntaxHighlighter') {
+        /* shBrushSql.js customisations:
+        added funcs: @@trancount
+        added keywords: catch go if nvarchar print try while
+        added operators: exists
+        added regex:
+        { regex: /\/\*(.|\n|\r)*?\*\/$/gm, css: 'comments' }, // multiline comments
+        */
+        SyntaxHighlighter.all();
+    }
 }
 
 function bindHoverDialogs() {
@@ -27,11 +53,18 @@ function toggleHoverDialog(link, show) {
     var dialog = link.next('div.dialog');
 
     var previewId = link.attr('data-hoverdialog-previewid');
+    var editorId = link.attr('data-hoverdialog-editorid');
     if (previewId && previewId != '') {
         var preview = $('#' + previewId);
+        var editor = preview;
+        if (editorId && editorId != '') {
+            editor = $('#' + editorId);
+        }
+        
         if (show) {
-            preview.html(dialog.html());
-            bindCodeEditors();
+            var html = dialog.html();
+            editor.html(html);
+            preview.show();            
         }
         else {
             var selectedLink = $('a.dialog.selected');
@@ -40,7 +73,8 @@ function toggleHoverDialog(link, show) {
                 toggleHoverDialog(selectedLink, true);
             }
             else {
-                preview.html('');
+                preview.hide();
+                editor.html('');
             }
         }
     }
@@ -73,4 +107,18 @@ function clearSearchResults() {
         var searchResult = $(this);
         searchResult.replaceWith(searchResult.text());
     });
+}
+
+function selectContent(element) {
+    if (element) {
+        if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(element);
+            range.select();
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(element);
+            window.getSelection().addRange(range);
+        }
+    }
 }

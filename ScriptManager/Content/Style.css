@@ -18,12 +18,20 @@ span.searchresult {
     background-color: #ffd800;
 }
 
-div#scripts, div#scriptpreview {
-    float: left;    
-    max-height: 100%;
+div#scripts-container {
+    min-width: 800px;
 }
-div#scripts {
-    width: 25%;  
+
+div#scripts-list, div#scriptpreview {
+    float: left;    
+    max-height: 100%;    
+}
+div#scripts-list, div#scriptpreview div#editor {
+    padding: 5px;
+}
+div#scripts-list {
+    width: 22%;
+    word-break: break-all;
 }
 div#scriptpreview {
     width: 75%;  

@@ -10,19 +10,22 @@
 @Html.Label("Search")
 @Html.TextBox("Search", null, new { @class = "search" })        
 
-<div>
-    <div id="scripts">
+<div id="scripts-container">
+    <div id="scripts-list">
         @foreach (Script script in Model)
         {
             <div>
-                <a class="dialog" data-hoverdialog-previewid="scriptpreview" href="#">@script.Name</a>
+                <a class="dialog" data-hoverdialog-previewid="scriptpreview" data-hoverdialog-editorid="editor" href="#">@script.Name</a>
                 <div class="hidden dialog searchable"><pre class="brush: sql;">@Html.Raw(script.Value)</pre></div>
             </div>                
         }
     </div>
-
-    <div id="scriptpreview" class="searchable">
-
+    
+    <div id="scriptpreview" class="hidden">
+        <div id="editor" class="searchable">
+            
+        </div>
+        <button id="SelectScript" onclick="selectContent($('#scriptpreview #editor')[0]); return false;">Select</button>
     </div>
-    <div style="clear: both;"></div>
+    <div style="clear: both;"></div>    
 </div>
