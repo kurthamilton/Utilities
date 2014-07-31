@@ -6,6 +6,14 @@
 }
 
 <h2>Scripts</h2>
+<br/>
+
+@*
+@Html.Label("FilePath", "File Path")
+@Html.TextBox("FilePath", null, new { width = 300 })
+
+<br/>
+*@
 
 @Html.Label("Search")
 @Html.TextBox("Search", null, new { @class = "search" })        
@@ -14,18 +22,18 @@
     <div id="scripts-list">
         @foreach (Script script in Model)
         {
-            <div>
+            <div class="filter-item">
                 <a class="dialog" data-hoverdialog-previewid="scriptpreview" data-hoverdialog-editorid="editor" href="#">@script.Name</a>
-                <div class="hidden dialog searchable"><pre class="brush: sql;">@Html.Raw(script.Value)</pre></div>
-            </div>                
+                <div class="hidden dialog"><pre class="searchable">@Html.Raw(script.Value)</pre></div>
+            </div>
         }
     </div>
     
     <div id="scriptpreview" class="hidden">
-        <div id="editor" class="searchable">
+        <div id="editor">
             
         </div>
-        <button id="SelectScript" onclick="selectContent($('#scriptpreview #editor')[0]); return false;">Select</button>
+        @*<button id="SelectScript" onclick="selectContent($('#scriptpreview #editor')[0]); return false;">Select</button>*@
     </div>
     <div style="clear: both;"></div>    
 </div>

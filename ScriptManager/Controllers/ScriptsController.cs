@@ -23,6 +23,13 @@ namespace Utilities.ScriptManager.Controllers
             return View(scripts);
         }
 
+        public ActionResult RefreshScripts()
+        {
+            IEnumerable<Script> scripts = FindScripts();
+
+            return View(scripts);
+        }
+
 
         // All of this stuff to go into a service layer
         private IEnumerable<Script> FindScripts()
@@ -33,10 +40,16 @@ namespace Utilities.ScriptManager.Controllers
                 throw new Exception(string.Format("ScriptPath not found: {0}", scriptPath));
             }
 
+            return GetScripts(scriptPath);
+        }
+
+        private IEnumerable<Script> GetScripts(string scriptPath)
+        {
             List<Script> scripts = new List<Script>();
+
             foreach (string filePath in Directory.GetFiles(scriptPath))
             {
-                FileInfo fileInfo = new FileInfo(filePath);                
+                FileInfo fileInfo = new FileInfo(filePath);
                 string value = System.IO.File.ReadAllText(filePath);
                 ScriptType type = ScriptType.None;
                 switch (fileInfo.Extension.ToLower())
@@ -47,6 +60,12 @@ namespace Utilities.ScriptManager.Controllers
                 }
                 scripts.Add(new Script() { Type = type, Name = filePath, Value = value });
             }
+
+            foreach (string directory in Directory.GetDirectories(scriptPath))
+            {
+                scripts.AddRange(GetScripts(directory));
+            }
+            
             return scripts;
         }
     }
